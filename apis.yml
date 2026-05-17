@@ -57,7 +57,7 @@ common:
     url: https://developer.capsulecrm.com/
   - type: Pricing
     url: https://capsulecrm.com/pricing/
-  - type: Sign Up
+  - type: SignUp
     url: https://capsulecrm.com/signup/
   - type: Support
     url: https://support.capsulecrm.com
