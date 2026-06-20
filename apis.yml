@@ -10,7 +10,7 @@ description: >-
   Authentication uses a Bearer token (personal access token or OAuth 2
   access token) against the base URL https://api.capsulecrm.com/api/v2/.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - CRM
   - Sales
