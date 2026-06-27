@@ -51,13 +51,13 @@ apis:
 common:
   - type: Website
     url: https://capsulecrm.com
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://developer.capsulecrm.com
   - type: Documentation
     url: https://developer.capsulecrm.com/
   - type: Pricing
     url: https://capsulecrm.com/pricing/
-  - type: SignUp
+  - type: Signup
     url: https://capsulecrm.com/signup/
   - type: Support
     url: https://support.capsulecrm.com
