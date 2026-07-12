@@ -49,6 +49,10 @@ apis:
         url: https://developer.capsulecrm.com/v2/overview/authentication
 
 common:
+  - type: DomainSecurity
+    url: security/capsule-crm-domain-security.yml
+  - type: Authentication
+    url: authentication/capsule-crm-authentication.yml
   - type: Website
     url: https://capsulecrm.com
   - type: DeveloperPortal
@@ -63,6 +67,8 @@ common:
     url: https://support.capsulecrm.com
   - type: LinkedIn
     url: https://www.linkedin.com/company/capsule-crm
+  - url: https://capsulecrm.com/blog/
+    type: Blog
 
 maintainers:
   - FN: Kin Lane
