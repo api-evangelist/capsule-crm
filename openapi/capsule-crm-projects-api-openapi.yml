@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: Capsule CRM API v2 Entries Projects API
+  description: Capsule is an online CRM for small and midsize businesses that manages contacts, sales pipelines, tasks, projects, and email integration. The v2 API is a REST/JSON service exposing parties (people and organisations), opportunities, projects, tasks, cases, users, and custom fields.
+  version: '2.0'
+  contact:
+    name: Capsule CRM Developer
+    url: https://developer.capsulecrm.com/
+servers:
+- url: https://api.capsulecrm.com/api/v2
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Projects
+paths:
+  /projects:
+    get:
+      tags:
+      - Projects
+      summary: List projects
+      operationId: listProjects
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+      - Projects
+      summary: Create project
+      operationId: createProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+  /projects/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - Projects
+      summary: Show project
+      operationId: showProject
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+      - Projects
+      summary: Update project
+      operationId: updateProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+      - Projects
+      summary: Delete project
+      operationId: deleteProject
+      responses:
+        '204':
+          description: No Content
+components:
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token or OAuth 2 access token

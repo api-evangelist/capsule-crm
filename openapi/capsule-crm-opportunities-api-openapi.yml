@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: Capsule CRM API v2 Entries Opportunities API
+  description: Capsule is an online CRM for small and midsize businesses that manages contacts, sales pipelines, tasks, projects, and email integration. The v2 API is a REST/JSON service exposing parties (people and organisations), opportunities, projects, tasks, cases, users, and custom fields.
+  version: '2.0'
+  contact:
+    name: Capsule CRM Developer
+    url: https://developer.capsulecrm.com/
+servers:
+- url: https://api.capsulecrm.com/api/v2
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Opportunities
+paths:
+  /opportunities:
+    get:
+      tags:
+      - Opportunities
+      summary: List opportunities
+      operationId: listOpportunities
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+      - Opportunities
+      summary: Create opportunity
+      operationId: createOpportunity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+  /opportunities/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - Opportunities
+      summary: Show opportunity
+      operationId: showOpportunity
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+      - Opportunities
+      summary: Update opportunity
+      operationId: updateOpportunity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+      - Opportunities
+      summary: Delete opportunity
+      operationId: deleteOpportunity
+      responses:
+        '204':
+          description: No Content
+  /opportunities/search:
+    get:
+      tags:
+      - Opportunities
+      summary: Search opportunities
+      operationId: searchOpportunities
+      parameters:
+      - in: query
+        name: q
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+components:
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token or OAuth 2 access token
