@@ -10,7 +10,19 @@ description: >-
   Authentication uses a Bearer token (personal access token or OAuth 2
   access token) against the base URL https://api.capsulecrm.com/api/v2/.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/capsule-crm.png
 tags:
   - CRM
   - Sales
@@ -25,29 +37,76 @@ created: '2026-05-11'
 modified: '2026-07-12'
 specificationVersion: '0.19'
 apis:
-  - aid: capsule-crm:v2-api
-    name: Capsule CRM API v2
-    description: >-
-      REST API for managing Capsule parties (contacts and
-      organisations), opportunities, projects (cases), tasks, users,
-      tags, and custom fields. Each request must include an
-      Authorization Bearer token obtained from a personal access token
-      or the OAuth 2 authorization code flow.
-    humanURL: https://developer.capsulecrm.com/
-    baseURL: https://api.capsulecrm.com/api/v2/
-    tags:
-      - CRM
-      - Contacts
-      - Opportunities
-      - Projects
-      - Tasks
-      - OAuth
-    properties:
-      - type: Documentation
-        url: https://developer.capsulecrm.com/
-      - type: Authentication
-        url: https://developer.capsulecrm.com/v2/overview/authentication
-
+- aid: capsule-crm:v2-api
+  name: Capsule CRM API v2
+  description: >-
+    REST API for managing Capsule parties (contacts and organisations), opportunities, projects (cases),
+    tasks, users, tags, and custom fields. Each request must include an Authorization Bearer token obtained
+    from a personal access token or the OAuth 2 authorization code flow.
+  humanURL: https://developer.capsulecrm.com/
+  baseURL: https://api.capsulecrm.com/api/v2/
+  tags:
+  - CRM
+  - Contacts
+  - Opportunities
+  - Projects
+  - Tasks
+  - OAuth
+  properties:
+  - type: Documentation
+    url: https://developer.capsulecrm.com/
+  - type: Authentication
+    url: https://developer.capsulecrm.com/v2/overview/authentication
+- aid: capsule-crm:capsule-crm-entries-api
+  name: Capsule CRM Entries API
+  description: The Entries API from Capsule CRM — 2 operation(s) for entries.
+  humanURL: https://developer.capsulecrm.com/
+  baseURL: https://api.capsulecrm.com/api/v2/
+  tags:
+  - Entries
+  properties:
+  - type: OpenAPI
+    url: openapi/capsule-crm-entries-api-openapi.yml
+- aid: capsule-crm:capsule-crm-opportunities-api
+  name: Capsule CRM Opportunities API
+  description: The Opportunities API from Capsule CRM — 3 operation(s) for opportunities.
+  humanURL: https://developer.capsulecrm.com/
+  baseURL: https://api.capsulecrm.com/api/v2/
+  tags:
+  - Opportunities
+  properties:
+  - type: OpenAPI
+    url: openapi/capsule-crm-opportunities-api-openapi.yml
+- aid: capsule-crm:capsule-crm-parties-api
+  name: Capsule CRM Parties API
+  description: The Parties API from Capsule CRM — 4 operation(s) for parties.
+  humanURL: https://developer.capsulecrm.com/
+  baseURL: https://api.capsulecrm.com/api/v2/
+  tags:
+  - Parties
+  properties:
+  - type: OpenAPI
+    url: openapi/capsule-crm-parties-api-openapi.yml
+- aid: capsule-crm:capsule-crm-projects-api
+  name: Capsule CRM Projects API
+  description: The Projects API from Capsule CRM — 2 operation(s) for projects.
+  humanURL: https://developer.capsulecrm.com/
+  baseURL: https://api.capsulecrm.com/api/v2/
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/capsule-crm-projects-api-openapi.yml
+- aid: capsule-crm:capsule-crm-tasks-api
+  name: Capsule CRM Tasks API
+  description: The Tasks API from Capsule CRM — 2 operation(s) for tasks.
+  humanURL: https://developer.capsulecrm.com/
+  baseURL: https://api.capsulecrm.com/api/v2/
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/capsule-crm-tasks-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/capsule-crm-agentic-access.yml
