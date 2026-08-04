@@ -1,0 +1,22 @@
+{
+  "provider": "capsule-crm",
+  "sources": [
+    "capsule-crm-entries-api-openapi.yml",
+    "capsule-crm-opportunities-api-openapi.yml",
+    "capsule-crm-parties-api-openapi.yml",
+    "capsule-crm-projects-api-openapi.yml",
+    "capsule-crm-tasks-api-openapi.yml"
+  ],
+  "outputs": [
+    "capsule-crm-entries-api-openapi.yml",
+    "capsule-crm-opportunities-api-openapi.yml",
+    "capsule-crm-parties-api-openapi.yml",
+    "capsule-crm-projects-api-openapi.yml",
+    "capsule-crm-tasks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
