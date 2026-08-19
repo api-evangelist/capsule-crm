@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Capsule CRM API v2 Entries Opportunities API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Opportunities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List opportunities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/opportunities"
+          },
+          "docs": "List opportunities"
+        },
+        {
+          "info": {
+            "name": "Create opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capsulecrm.com/api/v2/opportunities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create opportunity"
+        },
+        {
+          "info": {
+            "name": "Show opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/opportunities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show opportunity"
+        },
+        {
+          "info": {
+            "name": "Update opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.capsulecrm.com/api/v2/opportunities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update opportunity"
+        },
+        {
+          "info": {
+            "name": "Delete opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.capsulecrm.com/api/v2/opportunities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete opportunity"
+        },
+        {
+          "info": {
+            "name": "Search opportunities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/opportunities/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search opportunities"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

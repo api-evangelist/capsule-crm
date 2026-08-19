@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Capsule CRM API v2 Entries API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Entries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/entries"
+          },
+          "docs": "List entries"
+        },
+        {
+          "info": {
+            "name": "Create entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capsulecrm.com/api/v2/entries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create entry"
+        },
+        {
+          "info": {
+            "name": "Update entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.capsulecrm.com/api/v2/entries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update entry"
+        },
+        {
+          "info": {
+            "name": "Delete entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.capsulecrm.com/api/v2/entries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete entry"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Capsule CRM API v2 Entries Parties API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Parties",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List parties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/parties",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List parties"
+        },
+        {
+          "info": {
+            "name": "Create party",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capsulecrm.com/api/v2/parties",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create party"
+        },
+        {
+          "info": {
+            "name": "Show party",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/parties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show party"
+        },
+        {
+          "info": {
+            "name": "Update party",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.capsulecrm.com/api/v2/parties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update party"
+        },
+        {
+          "info": {
+            "name": "Delete party",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.capsulecrm.com/api/v2/parties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete party"
+        },
+        {
+          "info": {
+            "name": "Search parties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/parties/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search parties"
+        },
+        {
+          "info": {
+            "name": "List employees of an organisation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/parties/employees"
+          },
+          "docs": "List employees of an organisation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

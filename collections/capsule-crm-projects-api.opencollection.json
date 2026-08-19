@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Capsule CRM API v2 Entries Projects API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/projects"
+          },
+          "docs": "List projects"
+        },
+        {
+          "info": {
+            "name": "Create project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capsulecrm.com/api/v2/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create project"
+        },
+        {
+          "info": {
+            "name": "Show project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show project"
+        },
+        {
+          "info": {
+            "name": "Update project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.capsulecrm.com/api/v2/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update project"
+        },
+        {
+          "info": {
+            "name": "Delete project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.capsulecrm.com/api/v2/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete project"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

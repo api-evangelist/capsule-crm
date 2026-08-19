@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Capsule CRM API v2 Entries Tasks API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/tasks"
+          },
+          "docs": "List tasks"
+        },
+        {
+          "info": {
+            "name": "Create task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.capsulecrm.com/api/v2/tasks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create task"
+        },
+        {
+          "info": {
+            "name": "Show task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.capsulecrm.com/api/v2/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show task"
+        },
+        {
+          "info": {
+            "name": "Update task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.capsulecrm.com/api/v2/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update task"
+        },
+        {
+          "info": {
+            "name": "Delete task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.capsulecrm.com/api/v2/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete task"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
