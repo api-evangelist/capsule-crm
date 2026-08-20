@@ -28,6 +28,14 @@ tags:
   - Sales
   - Contacts
   - Pipeline Management
+  - Task
+  - Project
+  - SMB
+tags_raw:
+  - CRM
+  - Sales
+  - Contacts
+  - Pipeline Management
   - Tasks
   - Projects
   - SMB
@@ -46,6 +54,13 @@ apis:
   humanURL: https://developer.capsulecrm.com/
   baseURL: https://api.capsulecrm.com/api/v2/
   tags:
+  - CRM
+  - Contacts
+  - Opportunities
+  - Project
+  - Task
+  - Authentication
+  tags_raw:
   - CRM
   - Contacts
   - Opportunities
@@ -93,6 +108,8 @@ apis:
   humanURL: https://developer.capsulecrm.com/
   baseURL: https://api.capsulecrm.com/api/v2/
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -103,6 +120,8 @@ apis:
   humanURL: https://developer.capsulecrm.com/
   baseURL: https://api.capsulecrm.com/api/v2/
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
