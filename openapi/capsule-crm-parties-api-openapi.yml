@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Capsule CRM API v2 Entries Parties API
   description: Capsule is an online CRM for small and midsize businesses that manages contacts, sales pipelines, tasks, projects, and email integration. The v2 API is a REST/JSON service exposing parties (people and organisations), opportunities, projects, tasks, cases, users, and custom fields.
@@ -98,9 +98,9 @@ paths:
           description: OK
 components:
   parameters:
-    Page:
+    PerPage:
       in: query
-      name: page
+      name: perPage
       schema:
         type: integer
     IdPath:
@@ -110,9 +110,9 @@ components:
       schema:
         type: integer
         format: int64
-    PerPage:
+    Page:
       in: query
-      name: perPage
+      name: page
       schema:
         type: integer
   securitySchemes:
