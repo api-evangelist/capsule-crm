@@ -1,8 +1,28 @@
+# x-archived-from: capsule-projects-api-openapi.yml
+# x-archived-on: 2026-09-26
 openapi: 3.2.0
 info:
-  title: Capsule Crm Projects API
-  version: '1.0'
-  description: 'Operations tagged Projects across 2 of this provider''s published API definitions: capsule-crm-openapi.yml, capsule-projects-api-openapi.yml. Each path carries the servers of the definition it was published in.'
+  title: Capsule CRM REST Projects API
+  description: 'Capsule CRM v2 REST API for parties (contacts and companies),
+
+    opportunities, projects (kases), and tasks. Authentication uses
+
+    OAuth 2.0 bearer tokens (authorization code flow) or personal
+
+    access tokens.
+
+
+    This specification is a best-effort, hand-authored representation of
+
+    the publicly documented operations at https://developer.capsulecrm.com/.
+
+    Request bodies and response schemas are modeled generically; refer to
+
+    the developer docs for the full property set per resource.'
+  version: 2.0.0
+  contact:
+    name: Capsule CRM
+    url: https://developer.capsulecrm.com/
 servers:
 - url: https://api.capsulecrm.com/api/v2
   description: Production
@@ -11,68 +31,6 @@ security:
 tags:
 - name: Projects
 paths:
-  /projects:
-    get:
-      tags:
-      - Projects
-      summary: List projects
-      operationId: listProjects
-      responses:
-        '200':
-          description: OK
-    post:
-      tags:
-      - Projects
-      summary: Create project
-      operationId: createProject
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-      responses:
-        '201':
-          description: Created
-    servers:
-    - url: https://api.capsulecrm.com/api/v2
-      description: Production
-  /projects/{id}:
-    parameters:
-    - $ref: '#/components/parameters/IdPath'
-    get:
-      tags:
-      - Projects
-      summary: Show project
-      operationId: showProject
-      responses:
-        '200':
-          description: OK
-    put:
-      tags:
-      - Projects
-      summary: Update project
-      operationId: updateProject
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-      responses:
-        '200':
-          description: OK
-    delete:
-      tags:
-      - Projects
-      summary: Delete project
-      operationId: deleteProject
-      responses:
-        '204':
-          description: No Content
-    servers:
-    - url: https://api.capsulecrm.com/api/v2
-      description: Production
   /kases:
     get:
       tags:
@@ -101,9 +59,6 @@ paths:
           $ref: '#/components/responses/ProjectObject'
       operationId: postKases
       x-operation-id-source: derived
-    servers:
-    - url: https://api.capsulecrm.com/api/v2
-      description: Production
   /kases/{projectId}:
     parameters:
     - $ref: '#/components/parameters/ProjectId'
@@ -140,9 +95,6 @@ paths:
           description: Deleted
       operationId: deleteKasesByProjectId
       x-operation-id-source: derived
-    servers:
-    - url: https://api.capsulecrm.com/api/v2
-      description: Production
   /kases/deleted:
     get:
       tags:
@@ -159,9 +111,6 @@ paths:
           $ref: '#/components/responses/ProjectList'
       operationId: getKasesDeleted
       x-operation-id-source: derived
-    servers:
-    - url: https://api.capsulecrm.com/api/v2
-      description: Production
   /kases/search:
     get:
       tags:
@@ -177,9 +126,6 @@ paths:
           $ref: '#/components/responses/ProjectList'
       operationId: getKasesSearch
       x-operation-id-source: derived
-    servers:
-    - url: https://api.capsulecrm.com/api/v2
-      description: Production
   /parties/{partyId}/kases:
     parameters:
     - $ref: '#/components/parameters/PartyId'
@@ -192,56 +138,40 @@ paths:
           $ref: '#/components/responses/ProjectList'
       operationId: getPartiesByPartyIdKases
       x-operation-id-source: derived
-    servers:
-    - url: https://api.capsulecrm.com/api/v2
-      description: Production
 components:
+  schemas:
+    Project:
+      type: object
+      additionalProperties: true
+    ProjectEnvelope:
+      type: object
+      properties:
+        kase:
+          $ref: '#/components/schemas/Project'
   parameters:
-    IdPath:
-      in: path
-      name: id
-      required: true
+    PerPage:
+      in: query
+      name: perPage
       schema:
         type: integer
-        format: int64
-    PartyId:
-      in: path
-      name: partyId
-      required: true
-      schema:
-        type: string
     ProjectId:
       in: path
       name: projectId
       required: true
       schema:
         type: string
-    PerPage:
-      in: query
-      name: perPage
-      schema:
-        type: integer
     Page:
       in: query
       name: page
       schema:
         type: integer
-  schemas:
-    ProjectEnvelope:
-      type: object
-      properties:
-        kase:
-          $ref: '#/components/schemas/Project'
-    Project:
-      type: object
-      additionalProperties: true
+    PartyId:
+      in: path
+      name: partyId
+      required: true
+      schema:
+        type: string
   responses:
-    ProjectObject:
-      description: Project envelope.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProjectEnvelope'
     ProjectList:
       description: List of projects.
       content:
@@ -253,11 +183,21 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Project'
+    ProjectObject:
+      description: Project envelope.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProjectEnvelope'
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
-      description: Personal access token or OAuth 2 access token
-x-refined-from:
-- capsule-crm-openapi.yml
-- capsule-projects-api-openapi.yml
+      bearerFormat: JWT
+      description: 'OAuth 2.0 access token or personal access token. The OAuth
+
+        authorization endpoint is https://api.capsulecrm.com/oauth/authorise
+
+        and the token endpoint is https://api.capsulecrm.com/oauth/token.
+
+        '

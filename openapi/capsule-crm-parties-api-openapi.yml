@@ -1,11 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Capsule CRM API v2 Parties API
-  description: Capsule is an online CRM for small and midsize businesses that manages contacts, sales pipelines, tasks, projects, and email integration. The v2 API is a REST/JSON service exposing parties (people and organisations), opportunities, projects, tasks, cases, users, and custom fields.
-  version: '2.0'
-  contact:
-    name: Capsule CRM Developer
-    url: https://developer.capsulecrm.com/
+  title: Capsule Crm Parties API
+  version: '1.0'
+  description: 'Operations tagged Parties across 2 of this provider''s published API definitions: capsule-crm-openapi.yml, capsule-parties-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.capsulecrm.com/api/v2
   description: Production
@@ -40,6 +37,9 @@ paths:
       responses:
         '201':
           description: Created
+    servers:
+    - url: https://api.capsulecrm.com/api/v2
+      description: Production
   /parties/{id}:
     parameters:
     - $ref: '#/components/parameters/IdPath'
@@ -73,6 +73,9 @@ paths:
       responses:
         '204':
           description: No Content
+    servers:
+    - url: https://api.capsulecrm.com/api/v2
+      description: Production
   /parties/search:
     get:
       tags:
@@ -87,6 +90,9 @@ paths:
       responses:
         '200':
           description: OK
+    servers:
+    - url: https://api.capsulecrm.com/api/v2
+      description: Production
   /parties/employees:
     get:
       tags:
@@ -96,8 +102,91 @@ paths:
       responses:
         '200':
           description: OK
+    servers:
+    - url: https://api.capsulecrm.com/api/v2
+      description: Production
+  /parties/{partyId}:
+    parameters:
+    - $ref: '#/components/parameters/PartyId'
+    get:
+      tags:
+      - Parties
+      summary: Show a party
+      parameters:
+      - $ref: '#/components/parameters/Embed'
+      responses:
+        '200':
+          $ref: '#/components/responses/PartyObject'
+      operationId: getPartiesByPartyId
+      x-operation-id-source: derived
+    put:
+      tags:
+      - Parties
+      summary: Update a party
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartyEnvelope'
+      responses:
+        '200':
+          $ref: '#/components/responses/PartyObject'
+      operationId: putPartiesByPartyId
+      x-operation-id-source: derived
+    delete:
+      tags:
+      - Parties
+      summary: Delete a party
+      responses:
+        '204':
+          description: Deleted
+      operationId: deletePartiesByPartyId
+      x-operation-id-source: derived
+    servers:
+    - url: https://api.capsulecrm.com/api/v2
+      description: Production
+  /parties/{partyId}/people:
+    parameters:
+    - $ref: '#/components/parameters/PartyId'
+    get:
+      tags:
+      - Parties
+      summary: List employees linked to an organisation
+      responses:
+        '200':
+          $ref: '#/components/responses/PartyList'
+      operationId: getPartiesByPartyIdPeople
+      x-operation-id-source: derived
+    servers:
+    - url: https://api.capsulecrm.com/api/v2
+      description: Production
+  /parties/deleted:
+    get:
+      tags:
+      - Parties
+      summary: List deleted parties since a date
+      parameters:
+      - in: query
+        name: since
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          $ref: '#/components/responses/PartyList'
+      operationId: getPartiesDeleted
+      x-operation-id-source: derived
+    servers:
+    - url: https://api.capsulecrm.com/api/v2
+      description: Production
 components:
   parameters:
+    PerPage:
+      in: query
+      name: perPage
+      schema:
+        type: integer
     IdPath:
       in: path
       name: id
@@ -105,18 +194,55 @@ components:
       schema:
         type: integer
         format: int64
-    PerPage:
-      in: query
-      name: perPage
-      schema:
-        type: integer
     Page:
       in: query
       name: page
       schema:
         type: integer
+    PartyId:
+      in: path
+      name: partyId
+      required: true
+      schema:
+        type: string
+    Embed:
+      in: query
+      name: embed
+      description: Comma-separated list of related resources to embed.
+      schema:
+        type: string
+  responses:
+    PartyObject:
+      description: Party envelope.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PartyEnvelope'
+    PartyList:
+      description: List of parties.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              parties:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Party'
+  schemas:
+    PartyEnvelope:
+      type: object
+      properties:
+        party:
+          $ref: '#/components/schemas/Party'
+    Party:
+      type: object
+      additionalProperties: true
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
       description: Personal access token or OAuth 2 access token
+x-refined-from:
+- capsule-crm-openapi.yml
+- capsule-parties-api-openapi.yml
