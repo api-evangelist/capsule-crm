@@ -212,53 +212,35 @@ components:
       schema:
         type: integer
         format: int64
-    OpportunityId:
-      in: path
-      name: opportunityId
-      required: true
+    PerPage:
+      in: query
+      name: perPage
       schema:
-        type: string
+        type: integer
     PartyId:
       in: path
       name: partyId
       required: true
       schema:
         type: string
-    PerPage:
-      in: query
-      name: perPage
+    OpportunityId:
+      in: path
+      name: opportunityId
+      required: true
       schema:
-        type: integer
+        type: string
     Page:
       in: query
       name: page
       schema:
         type: integer
   responses:
-    OpportunityList:
-      description: List of opportunities.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              opportunities:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Opportunity'
     OpportunityObject:
       description: Opportunity envelope.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OpportunityEnvelope'
-    Generic:
-      description: Operation accepted.
-      content:
-        application/json:
-          schema:
-            type: object
-            additionalProperties: true
     PartyList:
       description: List of parties.
       content:
@@ -270,8 +252,29 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Party'
+    Generic:
+      description: Operation accepted.
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+    OpportunityList:
+      description: List of opportunities.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              opportunities:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Opportunity'
   schemas:
     Opportunity:
+      type: object
+      additionalProperties: true
+    Party:
       type: object
       additionalProperties: true
     OpportunityEnvelope:
@@ -279,9 +282,6 @@ components:
       properties:
         opportunity:
           $ref: '#/components/schemas/Opportunity'
-    Party:
-      type: object
-      additionalProperties: true
   securitySchemes:
     bearerAuth:
       type: http

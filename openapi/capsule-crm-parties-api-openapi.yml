@@ -187,6 +187,11 @@ components:
       name: perPage
       schema:
         type: integer
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
     IdPath:
       in: path
       name: id
@@ -194,30 +199,28 @@ components:
       schema:
         type: integer
         format: int64
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-    PartyId:
-      in: path
-      name: partyId
-      required: true
-      schema:
-        type: string
     Embed:
       in: query
       name: embed
       description: Comma-separated list of related resources to embed.
       schema:
         type: string
+    PartyId:
+      in: path
+      name: partyId
+      required: true
+      schema:
+        type: string
+  schemas:
+    PartyEnvelope:
+      type: object
+      properties:
+        party:
+          $ref: '#/components/schemas/Party'
+    Party:
+      type: object
+      additionalProperties: true
   responses:
-    PartyObject:
-      description: Party envelope.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/PartyEnvelope'
     PartyList:
       description: List of parties.
       content:
@@ -229,15 +232,12 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Party'
-  schemas:
-    PartyEnvelope:
-      type: object
-      properties:
-        party:
-          $ref: '#/components/schemas/Party'
-    Party:
-      type: object
-      additionalProperties: true
+    PartyObject:
+      description: Party envelope.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PartyEnvelope'
   securitySchemes:
     bearerAuth:
       type: http

@@ -2,9 +2,9 @@
   "provider": "capsule-crm",
   "sources": [
     "_original/capsule-crm-openapi.yml",
-    "capsule-opportunities-api-openapi.yml",
-    "capsule-parties-api-openapi.yml",
-    "capsule-projects-api-openapi.yml"
+    "_original/capsule-opportunities-api-openapi.yml",
+    "_original/capsule-parties-api-openapi.yml",
+    "_original/capsule-projects-api-openapi.yml"
   ],
   "outputs": [
     "capsule-crm-entries-api-openapi.yml",
@@ -13,20 +13,16 @@
     "capsule-crm-projects-api-openapi.yml",
     "capsule-crm-tasks-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/capsule-opportunities-api-openapi.yml",
-    "archived openapi/capsule-parties-api-openapi.yml",
-    "archived openapi/capsule-projects-api-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "capsule-crm-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "tag 'Opportunities' spans 2 source specs (capsule-crm-openapi.yml, capsule-opportunities-api-openapi.yml): per-path servers applied",
     "tag 'Parties' spans 2 source specs (capsule-crm-openapi.yml, capsule-parties-api-openapi.yml): per-path servers applied",
     "tag 'Projects' spans 2 source specs (capsule-crm-openapi.yml, capsule-projects-api-openapi.yml): per-path servers applied",
-    "apis.yml register: written (+0 apis, 6 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "capsule-crm-entries-api-openapi.yml: previously refined output, superseded by openapi/_original/",

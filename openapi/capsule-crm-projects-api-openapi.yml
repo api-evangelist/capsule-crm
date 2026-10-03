@@ -204,6 +204,11 @@ components:
       schema:
         type: integer
         format: int64
+    PerPage:
+      in: query
+      name: perPage
+      schema:
+        type: integer
     PartyId:
       in: path
       name: partyId
@@ -216,25 +221,20 @@ components:
       required: true
       schema:
         type: string
-    PerPage:
-      in: query
-      name: perPage
-      schema:
-        type: integer
     Page:
       in: query
       name: page
       schema:
         type: integer
   schemas:
+    Project:
+      type: object
+      additionalProperties: true
     ProjectEnvelope:
       type: object
       properties:
         kase:
           $ref: '#/components/schemas/Project'
-    Project:
-      type: object
-      additionalProperties: true
   responses:
     ProjectObject:
       description: Project envelope.
