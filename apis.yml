@@ -140,6 +140,9 @@ apis:
   - type: OpenAPI
     url: openapi/capsule-crm-tasks-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/capsule-crm-capability-edges.yml
+    name: Capsule CRM Business Capability Map
   - type: Overlay
     url: overlays/capsule-opportunities-api-overlay.yaml
   - type: Overlay

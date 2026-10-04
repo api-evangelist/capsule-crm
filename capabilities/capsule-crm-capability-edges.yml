@@ -1,0 +1,36 @@
+slug: capsule-crm
+provider: Capsule CRM
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Opportunities
+  spec_file: capsule-crm-opportunities-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.95
+  evidence: POST /opportunities 'Create opportunity'; GET /opportunities/search 'Search opportunities';
+    schemas Opportunity, OpportunityEnvelope
+  reason: Full CRUD plus party association over sales opportunities in a CRM sales-pipeline product —
+    squarely lead/opportunity/deal lifecycle management.
+- tag: Parties
+  spec_file: capsule-crm-parties-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.85
+  evidence: GET /parties 'List parties'; 'List employees of an organisation'; schemas PartyEnvelope, Party
+    — 'parties (people and organisations)'
+  reason: Parties are the CRM contact master (people and organisations with person-to-organisation links),
+    i.e. customer data/contact record management. Slight ambiguity between customer master and broader
+    lifecycle, hence 0.85.
