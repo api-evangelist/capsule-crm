@@ -212,26 +212,26 @@ components:
       schema:
         type: integer
         format: int64
-    PerPage:
-      in: query
-      name: perPage
-      schema:
-        type: integer
     PartyId:
       in: path
       name: partyId
       required: true
       schema:
         type: string
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
     OpportunityId:
       in: path
       name: opportunityId
       required: true
       schema:
         type: string
-    Page:
+    PerPage:
       in: query
-      name: page
+      name: perPage
       schema:
         type: integer
   responses:
@@ -252,13 +252,6 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Party'
-    Generic:
-      description: Operation accepted.
-      content:
-        application/json:
-          schema:
-            type: object
-            additionalProperties: true
     OpportunityList:
       description: List of opportunities.
       content:
@@ -270,11 +263,15 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Opportunity'
+    Generic:
+      description: Operation accepted.
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
   schemas:
     Opportunity:
-      type: object
-      additionalProperties: true
-    Party:
       type: object
       additionalProperties: true
     OpportunityEnvelope:
@@ -282,6 +279,9 @@ components:
       properties:
         opportunity:
           $ref: '#/components/schemas/Opportunity'
+    Party:
+      type: object
+      additionalProperties: true
   securitySchemes:
     bearerAuth:
       type: http
