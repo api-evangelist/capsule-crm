@@ -1,24 +1,22 @@
-# Kin Score artifact — capsule-crm — 2026-08-29T230545
+# Kin Score artifact — capsule-crm — 2026-09-24T161608
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: capsule-crm
-  schema_version: 0.16.0
-  scored_at: '2026-08-29'
-  run_ts: 2026-08-29T230545
-  composite: 33.2
+  schema_version: 0.22.0
+  scored_at: '2026-09-24'
+  run_ts: 2026-09-24T161608
+  composite: 32.8
   band: thin
   facets:
-    discoverability: 74.1
-    contract_quality: 53.7
-    governance: 0.0
-    operational_transparency: 0.0
-    developer_ergonomics: 38.1
-    commercial_clarity: 23.7
+    discoverability: 68.5
+    contract_quality: 53.0
     contract_governance: 0.0
+    operational_transparency: 7.9
+    developer_ergonomics: 38.1
     access_clarity: 23.7
   agent_readiness:
-    score: 20.7
+    score: 25.0
     band: agent-aware
     dimensions:
       spec_presence: true
@@ -30,7 +28,7 @@ kin_score:
       error_semantics: false
       openapi_examples: false
       rate_limit_signal: false
-      event_surface_described: false
+      event_surface_described: true
       agent_skills: false
       well_known_catalog: false
       consent_identity: false
@@ -43,7 +41,7 @@ kin_score:
   provenance:
     agentic_access: derived
     contracts:
-      total: 5
+      total: 8
       derived: 0
       coverage: 0.0
       callable: 100.0
