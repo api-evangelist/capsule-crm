@@ -204,6 +204,16 @@ components:
       schema:
         type: integer
         format: int64
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+    PerPage:
+      in: query
+      name: perPage
+      schema:
+        type: integer
     PartyId:
       in: path
       name: partyId
@@ -216,16 +226,6 @@ components:
       required: true
       schema:
         type: string
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-    PerPage:
-      in: query
-      name: perPage
-      schema:
-        type: integer
   schemas:
     ProjectEnvelope:
       type: object
@@ -236,6 +236,12 @@ components:
       type: object
       additionalProperties: true
   responses:
+    ProjectObject:
+      description: Project envelope.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProjectEnvelope'
     ProjectList:
       description: List of projects.
       content:
@@ -247,12 +253,6 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Project'
-    ProjectObject:
-      description: Project envelope.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProjectEnvelope'
   securitySchemes:
     bearerAuth:
       type: http

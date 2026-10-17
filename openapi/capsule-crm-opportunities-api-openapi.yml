@@ -212,12 +212,6 @@ components:
       schema:
         type: integer
         format: int64
-    PartyId:
-      in: path
-      name: partyId
-      required: true
-      schema:
-        type: string
     Page:
       in: query
       name: page
@@ -234,6 +228,24 @@ components:
       name: perPage
       schema:
         type: integer
+    PartyId:
+      in: path
+      name: partyId
+      required: true
+      schema:
+        type: string
+  schemas:
+    Party:
+      type: object
+      additionalProperties: true
+    OpportunityEnvelope:
+      type: object
+      properties:
+        opportunity:
+          $ref: '#/components/schemas/Opportunity'
+    Opportunity:
+      type: object
+      additionalProperties: true
   responses:
     OpportunityObject:
       description: Opportunity envelope.
@@ -241,17 +253,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/OpportunityEnvelope'
-    PartyList:
-      description: List of parties.
+    Generic:
+      description: Operation accepted.
       content:
         application/json:
           schema:
             type: object
-            properties:
-              parties:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Party'
+            additionalProperties: true
     OpportunityList:
       description: List of opportunities.
       content:
@@ -263,25 +271,17 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Opportunity'
-    Generic:
-      description: Operation accepted.
+    PartyList:
+      description: List of parties.
       content:
         application/json:
           schema:
             type: object
-            additionalProperties: true
-  schemas:
-    Opportunity:
-      type: object
-      additionalProperties: true
-    OpportunityEnvelope:
-      type: object
-      properties:
-        opportunity:
-          $ref: '#/components/schemas/Opportunity'
-    Party:
-      type: object
-      additionalProperties: true
+            properties:
+              parties:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Party'
   securitySchemes:
     bearerAuth:
       type: http
