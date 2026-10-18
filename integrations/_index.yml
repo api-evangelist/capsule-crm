@@ -56,7 +56,7 @@
     - alpha
     in_cloud: true
     builder: unknown (community connector; contributor not in the record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: capsule-crm-meltano
   label: Meltano
@@ -86,7 +86,7 @@
     quality:
     - gold
     builder: 'community (Meltano Hub variant maintainers: hotgluexyz, matatika)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
 - slug: capsule-crm-google-workspace-own
   label: Google Workspace (own)
