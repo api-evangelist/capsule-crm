@@ -101,6 +101,19 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: capsule-crm-zendesk-own
+  label: Zendesk (own)
+  partner: zendesk
+  partner_name: Zendesk (own)
+  category: CRM and Marketing
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.zendesk.com/marketplace/apps/support/4702/capsule-crm/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: capsule-crm-zoom-own
   label: Zoom (own)
   partner: zoom

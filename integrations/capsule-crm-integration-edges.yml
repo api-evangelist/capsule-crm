@@ -15,6 +15,7 @@ checked:
 - https://n8n.io/integrations/capsule-crm/
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/capsule-crm/integrations
+- zendesk/integrations/zendesk-integration-edges.yml
 - zoom/integrations/zoom-integration-edges.yml
 summary: null
 marketplace_apps: []
@@ -121,6 +122,23 @@ edges:
   detected: '2026-10-18'
   detected_by: mirror-platform-listings.py
   category: Google Workspace app
+- partner_name: Zendesk (own)
+  partner: zendesk
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.zendesk.com/marketplace/apps/support/4702/capsule-crm/
+  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
+  apps:
+  - Capsule CRM
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: CRM and Marketing
 - partner_name: Zoom (own)
   partner: zoom
   partner_match: mirror
